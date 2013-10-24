@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <!--
+		Oxford Geek Jam 6
+		Hip game
+	-->
+  <link rel="stylesheet" href="hip.css" type="text/css" media="screen" charset="utf-8" />
+  <script src="vendor/jquery.1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendor/raphael-min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="hip-core.js" type="text/javascript" charset="utf-8"></script>
+  <script src="ai.js" type="text/javascript" charset="utf-8"></script>
+  <script src="ui.js" type="text/javascript" charset="utf-8"></script>
+  <title>OGJ6: Hip</title>
+  <style>
+   html { font:1em/1.4 Arial, sans-serif }
+   body { margin:1em auto; max-width:40em; }
+   h1 { margin:1em 0; font-size:1.5em }
+   a { color:#DC143C }
+   a:visited { text-decoration:none }
+   a:hover { color:#00FF7F }
+   .board { height: 300px; width: 300px; }
+   .info { margin: 10px 0px 10px; }
+   .settings, .settings fieldset { margin: 0px 0px 10px; padding: 0px; border: none; }
+   .settings input.text { width: 40px; margin: 0px 10px 5px 5px; }
+   .playerInput { display: inline; }
+   .hidden { display: none; }
+  </style>
+ </head>
+ <body>
+  <h1>Hip.js <br/><small>an <a href="http://search.twitter.com/search?q=%23oxfordgeekjam">#oxfordgeekjam</a> production</small></h1>
+  <div class="game">
+   <h2 class="info"></h2>
+   <form class="settings"><fieldset>
+	<div class="playerInput hidden"><label></label><input type="text" class="text" value="0"/></div>
+    <br/>
+    Board Size:<input type="text" class="text boardSize" value="6"/>
+    <input type="submit" class="new" value="New Game" onclick="return false"/>
+   </fieldset></form>
+   <div class="board"></div>
+  </div>
+
+  <p><b>The Game of Hip</b> was devised by <a href="http://en.wikipedia.org/wiki/Martin_Gardner">Martin Gardner</a>, a prominent mathematician who passed away on May 22, 2010. We created this HTML5/JavaScript version of the game in memorial, as part of the <a href="http://www.oxfordgeekjam.net">Oxford Geek Jam</a> on May 23, 2010.</p>
+  <p>Check out <a href="m.html">the mobile version</a> as well!</p>
+  <p>Developed using <a href="http://html5.org/">HTML5</a>, <a href="http://raphaeljs.com">Raphael.js</a> and <a href="http://jqtouch.com/">jQTouch</a>.</p>
+
+  <h3>How to Play</h3>
+  <blockquote>The Game of Hip, by Martin  Gardner, is played on a 6×6 board. Red and Blue alternate placing a stone of their color on the board. The first person to complete a square of their color, in any orientation, loses. Ignoring rotations and reflections, there is a unique tie game.</blockquote>
+  <p><i>Description from <a href="http://www.mathpuzzle.com/">MathPuzzle.com</a></i></p>
+
+  <p>Links:</p>
+  <ul>
+   <li><a href="http://www.mathpuzzle.com/">MathPuzzle.com</a> - various Martin Gardner puzzles featured here</li>
+   <li><a href="http://books.google.co.uk/books?id=sUuBCzazfYUC&printsec=frontcover&dq=My+Best+Mathematical+and+Logical+Puzzles&cd=1#v=onepage&q=hip&f=false">The section from "My best mathematical and logic puzzles" on Google Books</a></li>
+   <li><a href="http://www.delphiforfun.com/programs/HIP.htm">HIP Game</a> - Gary Darby's version of the game</li>
+   <li><a href="http://www.oxfordgeekjam.net">Oxford Geek Jam</a></li>
+  </ul>
+  <p>Credits:</p>
+  <ul>
+   <li><a href="http://twitter.com/axiomsofchoice">Dan Hagon</a></li>
+   <li><a href="http://twitter.com/westdotcodottt">Matt Westcott</a></li>
+   <li><a href="http://twitter.com/mattythorne">Matty Thorne</a></li>
+   <li><a href="http://twitter.com/loleg">Oleg Lavrovsky</a></li>
+   <li><a href="http://twitter.com/peterjwest">Peter West</a></li>
+  </ul>
+
+ </body>
+</html>
