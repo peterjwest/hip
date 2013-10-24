@@ -1,7 +1,7 @@
 Hip.js
 ======
 
-### An [#oxfordgeekjam](http://search.twitter.com/search?q=%23oxfordgeekjam) production
+### An [#oxfordgeekjam](https://twitter.com/search?q=%23oxfordgeekjam) production
 
 This game was produced in an Oxford Geek Jam (now dead) meet up.
 We used SVN at the time, so I'm putting this into git now!
