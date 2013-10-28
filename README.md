@@ -6,6 +6,10 @@ Hip.js
 This game was produced in an Oxford Geek Jam (now dead) meet up.
 We used SVN at the time, so I'm putting this into git now!
 
+### Play the game
+
+[http://peterjwest.github.io/hip/](http://peterjwest.github.io/hip/)
+
 #### How to Play
 
 > The Game of Hip, by Martin Gardner, is played on a 6×6 board.
