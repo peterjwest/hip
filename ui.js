@@ -9,7 +9,7 @@ var BoardGameUI = function() {
 	var gameRound
 	var canvasSize = 300
 	var tokenSpacing
-	
+
 	this.init = function(gameArg, playerTypesArg, colorsArg, listenersArg) {
 		game = gameArg
 		playerTypes = playerTypesArg
@@ -30,16 +30,16 @@ var BoardGameUI = function() {
 		gameRound = 1
 		return {players : that.getPlayers(), board : board}
 	}
-	
+
 	this.makePlayerInputs = function() {
 		for (var i = playerTypes.length - 1; i >= 0; i--) {
 			var input = game.find(".playerInput.hidden").clone().removeClass("hidden")
 			input.find("label").text(playerTypes[i].name)
-			input.find("input").addClass(playerTypes[i].className).attr("value", i === 0 ? 2 : 0)
+			input.find("input").addClass(playerTypes[i].className).attr("value", i === 2 ? 0 : 1)
 			game.find("fieldset").prepend(input)
 		}
 	}
-	
+
 	this.getPlayers = function() {
 		var players = []
 		var number
@@ -59,22 +59,22 @@ var BoardGameUI = function() {
 		return players
 	}
 
-	
+
 	this.makeMove = function(point, player, nextPlayer) {
 		this.drawCircle(point, player.color)
 		gameRound++
 		this.updateInfo(nextPlayer)
 	}
-	
+
 	this.setActivePlayer = function(player) {
 		that.activePlayer = player
 		that.updateInfo(player)
 	}
-	
+
 	this.updateInfo = function(player) {
 		game.find(".info").html("Round "+gameRound+": "+player.name+"'s move")
 	}
-	
+
 	this.drawGameBoard = function() {
 		canvas.clear()
 		var tokens = board.allTokens()
@@ -82,7 +82,7 @@ var BoardGameUI = function() {
 			this.drawCircle(tokens[i], '#fff')
 		}
 	}
-	
+
 	this.drawEndBoard = function() {
 		var tokens = board.allTokens()
 		for (var i = 0; i < tokens.length; i++) {
@@ -91,24 +91,24 @@ var BoardGameUI = function() {
 			}
 		}
 	}
-	
+
 	this.drawCircle = function(point, color) {
 		var self = function(thing) { return thing }
 		var c = canvas.circle(this.getPosition(point.x), this.getPosition(point.y), tokenSpacing / 2 * 0.9)
 		c.attr({ fill: color })
 		c.click(function() { listeners.makeMove(point, that.activePlayer) })
 	}
-	
+
 	this.endGame = function(isADraw, player, losingSquares) {
 		if (isADraw) var str = "A Draw!!!"
 		else var str = player.name+" has lost!"
 		game.find(".info").text(str)
 		this.drawEndBoard()
 		for (var i = 0; i < losingSquares.length; i++) {
-			this.drawSquare(losingSquares[i]) 
+			this.drawSquare(losingSquares[i])
 		}
 	}
-	
+
 	this.drawSquare = function(squ) {
 		var points = []
 		for (var i = 0; i < squ.length; i++) {
@@ -116,7 +116,7 @@ var BoardGameUI = function() {
 		var linePath = "M "+points[0]+" L "+points[1]+" L "+points[2]+" L "+points[3]+" Z"
 		canvas.path(linePath)
 	}
-	
+
 	this.getPosition = function(index) {
 		return (tokenSpacing / 2) + (index * tokenSpacing)
 	}
@@ -135,8 +135,8 @@ $(document).ready(function () {
 	]
 	var playerTypes = [
 		new HumanPlayer(ui.setActivePlayer),
-		new RandomAI(engine),
-		new SimpleAI(engine)
+		new SimpleAI(engine),
+		new RandomAI(engine)
 	]
 	engine.init(ui)
 	ui.init($(".game"), playerTypes, colors, engine)
